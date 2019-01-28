@@ -14,7 +14,7 @@ body {
   border-radius: 50%;
   height: 110px;
   width: 110px;
-  background: url('~src/img/logos.png') #dae1e3 no-repeat center;
+  background: url('app/images/logos.png') #dae1e3 no-repeat center;
   box-sizing: border-box;
   position: absolute;
   left: 50%;

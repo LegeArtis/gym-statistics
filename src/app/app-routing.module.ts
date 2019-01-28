@@ -7,12 +7,11 @@ import {UserExerciseComponent} from './user-exercise/user-exercise.component';
 import {ExerciseViewComponent} from './exercise-view/exercise-view.component';
 
 const routes: Routes = [
-  { path: 'gym/userPage/:id', component: UserPageComponent},
-  { path: '', redirectTo: '/gym', pathMatch: 'full'},
-  { path: 'gym/userStatistics/:id', component: UserStatisticsComponent},
-  { path: 'gym', component: MainPageComponent},
-  { path: 'gym/exercise/:id', component: UserExerciseComponent},
-  { path: 'gym/exerciseView/:id', component: ExerciseViewComponent}
+  { path: 'userPage/:id', component: UserPageComponent},
+  { path: 'userStatistics/:id', component: UserStatisticsComponent},
+  { path: '', component: MainPageComponent},
+  { path: 'exercise/:id', component: UserExerciseComponent},
+  { path: 'exerciseView/:id', component: ExerciseViewComponent}
 ];
 
 @NgModule({

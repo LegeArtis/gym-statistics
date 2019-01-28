@@ -1,9 +1,9 @@
-<section class="header">
+<section *ngIf="users" class="header">
 
   <h1 class="welcome">Welcome to <span>Gym Statistics</span></h1>
   <ul class="group">
       <dl *ngFor="let user of users">
-        <button class="button" (click)="transportUser(user)" routerLink="/gym/userPage/{{user.userName}}">
+        <button class="button" (click)="transportUser(user)" routerLink="userPage/{{user.userName}}">
             {{user.userName}}
         </button>
       </dl>

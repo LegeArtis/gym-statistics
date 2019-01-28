@@ -24,7 +24,6 @@ img{
   left: 60%;
 }
 
-
 .title1{
   color:#fff;
   margin-top: 150px;
@@ -34,8 +33,8 @@ img{
 
 }
 
-
 .trainingName{
+  border-radius: 8px;
   background: #12202d;
   color: #fff;
   border: 0px;
@@ -68,18 +67,10 @@ img{
   display: inline-flex;
   margin-top: 10px;
   margin-left: 10%;
-
-}
-
-.buttonDelete {
-  margin-left: 1%;
-  border: 0;
-  border-radius: 5px;
-  color: rgb(251, 250, 255);
-  background: #ff5e18;
 }
 
 .button {
+  border-radius: 0 8px 8px 0;
   background: #12202d;
   color: #fff;
   font-size: 20px;
@@ -108,15 +99,36 @@ img{
 
 
 .cell{
+  border-radius: 8px 0 0 8px;
   background: #fff;
   display: block;
   height: 40px;
   width: 70%;
-  border: 0px;
+  border: 0;
   margin-bottom: 14px;
   font-size: 18px;
   box-sizing: border-box;
   padding-left: 10px;
+}
+
+.buttonDelete{
+  margin-left: 1%;
+  background: url('~src/app/images/del.svg')no-repeat center;
+  height: 30px;
+  width: 30px;
+  padding:1.5%;
+  border: 0px;
+
+}
+
+
+.buttonDelete:hover{
+  margin-left: 1%;
+  background: url('~src/app/images/del1.svg')no-repeat center;
+  height: 30px;
+  width: 30px;
+  padding:1.5%;
+  border: 0px;
 }
 
 

@@ -7,7 +7,7 @@ import {User} from './user';
 })
 export class MongoDBService {
 
-  url = 'http://localhost:4000/gym';
+  url = 'http://localhost:4000';
 
   constructor(private http: HttpClient) { }
   getUsers() {

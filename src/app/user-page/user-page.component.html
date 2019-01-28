@@ -6,11 +6,11 @@
 
         <ul class="ul">
             <dl *ngFor="let training of user.userTraining">
-              <button class="trainingName" (click)="choice(training)" routerLink="/gym/exercise/{{user.userName}}">
+              <button class="trainingName" (click)="choice(training)" routerLink="/exercise/{{user.userName}}">
                   {{training.trainingName}}
 
               </button>
-              <button class="buttonDelete" (click)="delete(training)">X</button>
+              <button class="buttonDelete" (click)="delete(training)"></button>
             </dl>
         </ul>
 

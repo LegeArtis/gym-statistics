@@ -1,26 +1,26 @@
-<div align="center" *ngIf="user && user.userTraining && user.userTraining[trainingIndex].userExercises">
-  <h1>Выполняем {{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</h1>
+<div class="container">
+  <img src="men.png" alt="Мужик">
 
-  <div>
-      <p>
-        Нужно выполнить {{user.userTraining[trainingIndex].userExercises[exerciseIndex].count}} подхода!
-      </p>
-
-    <form #Form="ngForm" (ngSubmit)="exerciseDone(+param1.value, +param2.value)">
+  <div class="formBackground" *ngIf="user && user.userTraining && user.userTraining[trainingIndex].userExercises">
+    <h1 class="title">Выполняем <span>{{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</span></h1>
+    <div>
         <p>
-          Осталось выполнить {{countLeft}} подходов!
+          Нужно выполнить {{user.userTraining[trainingIndex].userExercises[exerciseIndex].count}} подхода!
         </p>
-        <p>
-          {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param1}}
-          <input [ngModel] name="param1" #param1>
-        </p>
-        <p>
-          {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param2}}
-          <input [ngModel] name="param2" #param2>
-        </p>
-        <button type="submit">Add</button>
-    </form>
-
+      <form #Form="ngForm" (ngSubmit)="exerciseDone(+param1.value, +param2.value)">
+          <p>
+            Осталось выполнить {{countLeft}} подходов!
+          </p>
+          <p>
+            {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param1}}
+            <input [ngModel] name="param1" #param1>
+          </p>
+          <p>
+            {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param2}}
+            <input [ngModel] name="param2" #param2>
+          </p>
+          <button class="button" type="submit">Add</button>
+      </form>
+    </div>
   </div>
-
 </div>

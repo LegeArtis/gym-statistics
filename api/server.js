@@ -15,7 +15,7 @@ mongoose.connect(config.DB, { useNewUrlParser: true }).then(
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.use('/gym', businessRoute);
+app.use('', businessRoute);
 const port = process.env.PORT || 4000;
 
 const server = app.listen(port, function(){
