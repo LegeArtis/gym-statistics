@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Exercise, User} from '../user';
-import {TransporterService} from '../transporter.service';
 import {MongoDBService} from '../mongo-db.service';
 import {isNumber} from 'util';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -17,20 +17,13 @@ export class UserExerciseComponent implements OnInit {
   index: number;
   createMode = true;
 
-  constructor(private transport: TransporterService,
-              private mongoDB: MongoDBService) { }
+  constructor(private mongoDB: MongoDBService,
+              private location: Location) { }
 
   ngOnInit() {
-    this.user = this.transport.getUser();
-    if (this.user === undefined) {
-      this.mongoDB.getUserById(sessionStorage.getItem('user')).subscribe((userGet: User) => {
-        this.user = userGet;
-        console.log('User by id was find!');
-      });
-    } else {
-      sessionStorage.setItem('user', this.user._id.toString() );
-      console.log('user was add to sessionStorage');
-    }
+    this.mongoDB.getUserByFId(sessionStorage.getItem('user')).subscribe((user: User) => {
+      this.user = user;
+    });
     if (isNumber(+sessionStorage.getItem('training'))) {
       this.index = +sessionStorage.getItem(('training'));
     }
@@ -57,5 +50,11 @@ export class UserExerciseComponent implements OnInit {
   }
   choice(exercise: Exercise) {
     sessionStorage.setItem('exercise', this.user.userTraining[this.index].userExercises.indexOf(exercise).toString());
+  }
+  back() {
+    this.location.back();
+  }
+  exit() {
+    this.user = null;
   }
 }

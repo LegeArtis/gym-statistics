@@ -7,18 +7,19 @@ import {User} from './user';
 })
 export class MongoDBService {
 
-  url = 'http://localhost:4000';
+  url = 'https://gymstat.biz.ua';
 
   constructor(private http: HttpClient) { }
-  getUsers() {
-    return this.http.get(`${this.url}`);
-  }
-
-  getUserById(id) {
-    return this.http.get(`${this.url}/findById/${id}`);
-  }
 
   updateUsers(user: User): void {
     this.http.post(`${this.url}/update/${user._id}`, user).subscribe(res => console.log('Update Done'));
+  }
+
+  addUser(user: User): void {
+    this.http.post(`${this.url}/add`, user).subscribe( res => console.log(`New User ${user.userName} add to Database!`));
+  }
+
+  getUserByFId(id) {
+    return this.http.get(`${this.url}/findByFId/${id}`);
   }
 }

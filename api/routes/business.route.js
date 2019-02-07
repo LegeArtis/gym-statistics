@@ -10,13 +10,15 @@ let User = require('../models/User');
 
 // Defined store route
 businessRoutes.route('/add').post(function (req, res) {
-  let business = new Business(req.body);
-  business.save()
+  console.log(req.body);
+  let user = new User(req.body);
+  user.save()
     .then(business => {
-      res.status(200).json({'business': 'business in added successfully'});
+      res.status(200).json({'user': 'user in added successfully'});
     })
     .catch(err => {
       res.status(400).send("unable to save to database");
+      console.log(`${err}`);
     });
 });
 
@@ -36,6 +38,12 @@ businessRoutes.route('/findById/:id').get(function (req, res) {
   const objectId = new ObjectId(req.params.id);
   User.findById(objectId, function (err, users) {
       res.json(users);
+  });
+});
+
+businessRoutes.route('/findByFId/:id').get(function (req, res) {
+  User.findOne({"facebookId": req.params.id}, function (err, users) {
+    res.json(users);
   });
 });
 

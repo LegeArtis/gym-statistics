@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let User = new Schema({
-  _id: {
-    type: Object
+  facebookId: {
+    type: String
   },
   userName: {
     type: String
   },
   userTraining: {
     type: Array
-  },
+  }
 },{
     collection: 'Users'
 });

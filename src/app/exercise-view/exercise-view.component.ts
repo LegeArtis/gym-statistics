@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ExerciseFinished, User} from '../user';
 import {isNumber} from 'util';
-import {TransporterService} from '../transporter.service';
 import {MongoDBService} from '../mongo-db.service';
+import { Location} from '@angular/common';
 
 @Component({
   selector: 'app-exercise-view',
@@ -18,8 +18,8 @@ export class ExerciseViewComponent implements OnInit {
   countLeft: number;
   exerciseFinished = new ExerciseFinished();
 
-  constructor(private transport: TransporterService,
-              private mongoDB: MongoDBService) { }
+  constructor(private mongoDB: MongoDBService,
+              private location: Location) { }
 
   ngOnInit() {
     if (isNumber(+sessionStorage.getItem('training'))) {
@@ -28,20 +28,10 @@ export class ExerciseViewComponent implements OnInit {
     if (isNumber(+sessionStorage.getItem('exercise'))) {
       this.exerciseIndex = +sessionStorage.getItem(('exercise'));
     }
-    if (this.transport.getUser()) {
-      this.user = this.transport.getUser();
-      this.countLeft = this.transport.getUser().userTraining[this.trainingIndex].userExercises[this.exerciseIndex].count;
-    }
-    if (this.user === undefined) {
-      this.mongoDB.getUserById(sessionStorage.getItem('user')).subscribe((userGet: User) => {
-        this.user = userGet;
-        this.countLeft = userGet.userTraining[this.trainingIndex].userExercises[this.exerciseIndex].count;
-        console.log('User by id was find!');
-      });
-    } else {
-      sessionStorage.setItem('user', this.user._id.toString() );
-      console.log('user was add to sessionStorage');
-    }
+    this.mongoDB.getUserByFId(sessionStorage.getItem('user')).subscribe((user: User) => {
+      this.user = user;
+      this.countLeft = user.userTraining[this.trainingIndex].userExercises[this.exerciseIndex].count;
+    });
   }
 
   exerciseDone(param1: number, param2: number) {
@@ -55,6 +45,12 @@ export class ExerciseViewComponent implements OnInit {
         this.mongoDB.updateUsers(this.user);
       }
     }
+  }
+  exit() {
+    this.user = null;
+  }
+  back() {
+    this.location.back();
   }
 
 }

@@ -1,8 +1,15 @@
 
 export class User {
-  _id: Object;
-  userName: string;
+  facebookId: string;
   userTraining: Training[];
+  userName: string;
+  _id: Object;
+
+  constructor(facebookId: string, name: string) {
+    this.facebookId = facebookId;
+    this.userName = name;
+    this.userTraining = [];
+  }
 }
 
 export class Training {

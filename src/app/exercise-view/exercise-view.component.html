@@ -2,6 +2,8 @@
   <img src="men.png" alt="Мужик">
 
   <div class="formBackground" *ngIf="user && user.userTraining && user.userTraining[trainingIndex].userExercises">
+    <button (click)="exit()" routerLink="/">exit</button>
+    <button (click)="back()">back</button>
     <h1 class="title">Выполняем <span>{{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</span></h1>
     <div>
         <p>

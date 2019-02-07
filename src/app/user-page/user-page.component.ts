@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MongoDBService} from '../mongo-db.service';
-import {TransporterService} from '../transporter.service';
 import {Training, User} from '../user';
-
 
 
 @Component({
@@ -12,22 +10,14 @@ import {Training, User} from '../user';
 })
 export class UserPageComponent implements OnInit {
 
-  constructor(private transport: TransporterService,
-              private mongoDB: MongoDBService) { }
+  constructor(private mongoDB: MongoDBService) { }
 
   user: User;
 
   ngOnInit() {
-    this.user = this.transport.getUser();
-    if (this.user === undefined) {
-      this.mongoDB.getUserById(sessionStorage.getItem('user')).subscribe((userGet: User) => {
-        this.user = userGet;
-        console.log('User by id was find!');
-      });
-    } else {
-      sessionStorage.setItem('user', this.user._id.toString() );
-      console.log('user was add to sessionStorage');
-    }
+  this.mongoDB.getUserByFId(sessionStorage.getItem('user')).subscribe((user: User) => {
+    this.user = user;
+  });
   }
 
   addTraining(trainingName) {
@@ -44,5 +34,9 @@ export class UserPageComponent implements OnInit {
   }
   choice(training: Training) {
     sessionStorage.setItem('training', this.user.userTraining.indexOf(training).toString());
+  }
+
+  exit() {
+    this.user = null;
   }
 }

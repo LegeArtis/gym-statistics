@@ -1,9 +1,9 @@
   <div class="container">
     <img src="men.png" alt="Мужик">
     <div *ngIf="user" class="formBackground">
-
-        <p class="title1">{{user.userName}}, выбирете тренировку! </p>
-
+      <button (click)="exit()" routerLink="/">Выйти</button>
+      <p class="title1">Вы вошли как <span class="name">{{user.userName}}</span></p>
+        <p class="title1"> Выбирете тренировку! </p>
         <ul class="ul">
             <dl *ngFor="let training of user.userTraining">
               <button class="trainingName" (click)="choice(training)" routerLink="/exercise/{{user.userName}}">

@@ -1,14 +1,11 @@
-<section *ngIf="users" class="header">
 
+
+<section class="header" *ngIf="testUser">
   <h1 class="welcome">Welcome to <span>Gym Statistics</span></h1>
   <ul class="group">
-      <dl *ngFor="let user of users">
-        <button class="button" (click)="transportUser(user)" routerLink="userPage/{{user.userName}}">
-            {{user.userName}}
-        </button>
-      </dl>
+    <button class="button" (click)="socialSignIn()">Sign in with FB</button>
+    <button class="button" (click)="tester()" routerLink="/userPage/{{testUser.userName}}">{{testUser.userName}}</button>
   </ul>
-
 </section>
 
 

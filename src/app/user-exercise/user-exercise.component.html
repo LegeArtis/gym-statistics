@@ -3,6 +3,8 @@
 <div class="container">
   <img src="men.png" alt="Мужик">
   <div class="formBackground"  *ngIf="user && user.userTraining">
+    <button (click)="exit()" routerLink="/">exit</button>
+    <button (click)="back()">back</button>
     <h3 class="title">{{user.userTraining[index].trainingName}} </h3>
     <ul class="ul">
         <dl *ngFor="let exercise of user.userTraining[index].userExercises">
