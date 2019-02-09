@@ -7,8 +7,8 @@
   z-index: 1;
   background: #7d9196;
   height: 100%;
-  width: 80%;
-  left: 10%;
+  width: 90%;
+  left: 5%;
   box-sizing: border-box;
   position: absolute;
   padding-top: 5%;
@@ -54,7 +54,7 @@
   border: 0;
   position: absolute;
   top: 3%;
-  left: 55%;
+  left: 65%;
   border-radius: 20px;
   width: 100px;
   height: 30px;

@@ -59,12 +59,11 @@
     <div class="form_m" [hidden]="createMode">
       <form #myForm="ngForm" (ngSubmit)="finish(exerciseName.value, param1.value, param2.value, +count.value)">
 
-        <div class="inputBlock_m">
-          <p>Введите название упражнения:</p>
-          <input [ngModel] name="exerciseName" placeholder="название" #exerciseName>
-        </div>
-
-       <!-- <p>
+        <p>
+            Введите название упражнения:
+            <input [ngModel] name="exerciseName" placeholder="название" #exerciseName>
+        </p>
+        <p>
           Укажите параметр 1:
           <input [ngModel] name="param1" placeholder="параметр 1" #param1>
         </p>
@@ -76,8 +75,8 @@
           Сколько будет подходов?:
           <input [ngModel] name="count" placeholder="количество" #count>
         </p>
-        -->
-        <button class="button" type="submit">Finish</button>
+
+        <button class="button_m" type="submit">Finish</button>
       </form>
     </div>
   </div>
