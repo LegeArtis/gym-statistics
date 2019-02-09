@@ -1,10 +1,18 @@
+<div class="logo"></div>
 
-
-<section class="header" *ngIf="testUser">
+<section class="desktop" *ngIf="testUser && stateService.getIsMobile()">
   <h1 class="welcome">Welcome to <span>Gym Statistics</span></h1>
   <ul class="group">
     <button class="button" (click)="socialSignIn()">Sign in with FB</button>
     <button class="button" (click)="tester()" routerLink="/userPage/{{testUser.userName}}">{{testUser.userName}}</button>
+  </ul>
+</section>
+
+<section class="mobile" *ngIf="testUser && !stateService.getIsMobile()">
+  <h1 class="welcome_m">Welcome to <span>Gym Statistics</span></h1>
+  <ul class="group_m">
+    <button class="button_m" (click)="socialSignIn()">Sign in with FB</button>
+    <button class="button_m" (click)="tester()" routerLink="/userPage/{{testUser.userName}}">{{testUser.userName}}</button>
   </ul>
 </section>
 

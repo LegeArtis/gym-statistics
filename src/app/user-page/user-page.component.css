@@ -1,3 +1,103 @@
+.container_m{
+  z-index: 2;
+  width: 100%;
+}
+
+.formBackground_m{
+  z-index: 1;
+  background: #7d9196;
+  height: 100%;
+  width: 80%;
+  left: 10%;
+  box-sizing: border-box;
+  position: absolute;
+  padding-top: 5%;
+}
+
+.button_m {
+  border-radius: 0 8px 8px 0;
+  background: #12202d;
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  width: 19%;
+  height: 40px;
+  text-align: center;
+  float: right;
+  border: 0;
+  padding: 0;
+}
+
+.trainingName_m{
+  border-radius: 8px;
+  background: #12202d;
+  color: #fff;
+  border: 0;
+  width: 75%;
+  height: 50px;
+  font-size: 18px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 10%;
+}
+
+.exit_m{
+  font-size: 18px;
+  font-weight: bold;
+  color: #7d9196;
+  background: #12202d;
+  border: 0;
+  position: absolute;
+  top: 3%;
+  left: 55%;
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.title1_m{
+  color:#fff;
+  margin-top: 15%;
+  font-size: 24px;
+  padding-top: 5%;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.exit{
+  font-size: 18px;
+  font-weight: bold;
+  color: #171616;
+  background: #7d9196;
+  border: 0;
+  position: absolute;
+  top: 10%;
+  left: 80%;
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.exit:active{
+  background: #c4c4c4;
+  color: #171616;
+}
+
+.exit:hover{
+  background: #c4c4c4;
+  color: #171616;
+}
+
+
 .container{
   z-index: 2;
   width: 1170px;
@@ -36,7 +136,6 @@ img{
   font-size: 24px;
   padding-top: 10px;
   text-align: center;
-
 }
 
 .trainingName{
@@ -53,7 +152,6 @@ img{
   font-weight: bold;
   text-align: center;
   margin-left: 10%;
-
 }
 
 .trainingName:active{

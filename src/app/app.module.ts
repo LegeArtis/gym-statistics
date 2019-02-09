@@ -12,6 +12,7 @@ import {UserExerciseComponent} from './user-exercise/user-exercise.component';
 import {ExerciseViewComponent} from './exercise-view/exercise-view.component';
 import {FormsModule} from '@angular/forms';
 import {AuthServiceConfig, FacebookLoginProvider, SocialLoginModule} from 'angular-6-social-login';
+import {StateServiceService} from './state-service.service';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -47,6 +48,7 @@ export function getAuthServiceConfigs() {
       useFactory: getAuthServiceConfigs
     },
     MongoDBService,
+    StateServiceService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,6 +3,8 @@ import { User} from '../user';
 import { MongoDBService} from '../mongo-db.service';
 import { AuthService, FacebookLoginProvider} from 'angular-6-social-login';
 import { Router} from '@angular/router';
+import {StateServiceService} from '../state-service.service';
+
 
 @Component({
   selector: 'app-main-page',
@@ -16,7 +18,8 @@ export class MainPageComponent implements OnInit {
 
   constructor(private service: MongoDBService,
               private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              public stateService: StateServiceService) { }
 
   ngOnInit() {
     this.service.getUserByFId('1').subscribe((user: User) => {

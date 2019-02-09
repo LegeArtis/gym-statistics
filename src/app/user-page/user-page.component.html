@@ -1,7 +1,8 @@
-  <div class="container">
+  <div class="container" *ngIf="user && state.getIsMobile()">
     <img src="men.png" alt="Мужик">
-    <div *ngIf="user" class="formBackground">
-      <button (click)="exit()" routerLink="/">Выйти</button>
+    <button class="exit" (click)="exit()" routerLink="/">Выйти</button>
+    <div class="formBackground">
+
       <p class="title1">Вы вошли как <span class="name">{{user.userName}}</span></p>
         <p class="title1"> Выбирете тренировку! </p>
         <ul class="ul">
@@ -21,3 +22,26 @@
 
       </div>
   </div>
+
+  <div class="container_m" *ngIf="user && !state.getIsMobile()">
+    <div class="formBackground_m">
+      <button class="exit_m" (click)="exit()" routerLink="/">Выйти</button>
+      <p class="title1_m">Вы вошли как <span class="name">{{user.userName}}</span></p>
+      <p class="title1_m"> Выбирете тренировку! </p>
+      <ul class="ul">
+        <dl *ngFor="let training of user.userTraining">
+          <button class="trainingName_m" (click)="choice(training)" routerLink="/exercise/{{user.userName}}">
+            {{training.trainingName}}
+
+          </button>
+          <button class="buttonDelete" (click)="delete(training)"></button>
+        </dl>
+      </ul>
+
+      <div class="enter">
+        <input class="cell" #trainingName placeholder="введите название">
+        <button class="button" (click)="addTraining(trainingName.value)">Add</button>
+      </div>
+    </div>
+  </div>
+

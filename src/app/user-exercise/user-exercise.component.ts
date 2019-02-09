@@ -3,6 +3,7 @@ import {Exercise, User} from '../user';
 import {MongoDBService} from '../mongo-db.service';
 import {isNumber} from 'util';
 import {Location} from '@angular/common';
+import {StateServiceService} from '../state-service.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class UserExerciseComponent implements OnInit {
   createMode = true;
 
   constructor(private mongoDB: MongoDBService,
-              private location: Location) { }
+              private location: Location,
+              public state: StateServiceService) { }
 
   ngOnInit() {
     this.mongoDB.getUserByFId(sessionStorage.getItem('user')).subscribe((user: User) => {

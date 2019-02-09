@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+body, html, .header {
   margin: 0;
   padding-top: 0;
   color: #171616;
@@ -61,6 +61,7 @@ body {
 }
 
 .credits{
+  white-space: nowrap;
   z-index: 2;
   font-size: 18px;
   color: #c4c4c4;
@@ -69,5 +70,6 @@ body {
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
+  margin: 0;
 }
 

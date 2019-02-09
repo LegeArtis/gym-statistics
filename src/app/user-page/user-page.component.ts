@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MongoDBService} from '../mongo-db.service';
 import {Training, User} from '../user';
+import {StateServiceService} from '../state-service.service';
 
 
 @Component({
@@ -10,7 +11,8 @@ import {Training, User} from '../user';
 })
 export class UserPageComponent implements OnInit {
 
-  constructor(private mongoDB: MongoDBService) { }
+  constructor(private mongoDB: MongoDBService,
+              public state: StateServiceService) { }
 
   user: User;
 
