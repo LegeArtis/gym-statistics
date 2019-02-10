@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container" *ngIf="state.getIsMobile()">
   <img src="men.png" alt="Мужик">
+  <button class="exit" (click)="exit()" routerLink="/">Выйти</button>
+  <button class="back" (click)="back()"></button>
 
   <div class="formBackground" *ngIf="user && user.userTraining && user.userTraining[trainingIndex].userExercises">
-    <button (click)="exit()" routerLink="/">exit</button>
-    <button (click)="back()">back</button>
-    <h1 class="title">Выполняем <span>{{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</span></h1>
+
+
     <div>
-        <p>
-          Нужно выполнить {{user.userTraining[trainingIndex].userExercises[exerciseIndex].count}} подхода!
-        </p>
-      <form #Form="ngForm" (ngSubmit)="exerciseDone(+param1.value, +param2.value)">
-          <p>
-            Осталось выполнить {{countLeft}} подходов!
-          </p>
+      <h1 class="title" *ngIf="countLeft == 0">Вы выполнили <span>{{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</span> !</h1>
+      <form #Form="ngForm" *ngIf="countLeft > 0" (ngSubmit)="exerciseDone(+param1.value, +param2.value)">
+        <h1 class="title">Выполняем <span>{{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</span></h1>
+          <h2 class="text">
+            Осталось выполнить  подходов: <span>{{countLeft}}</span>
+          </h2>
           <p>
             {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param1}}
             <input [ngModel] name="param1" #param1>
@@ -23,6 +23,55 @@
           </p>
           <button class="button" type="submit">Add</button>
       </form>
+
+      <table align="center" *ngIf="exFinished">
+        <caption>Последний раз {{date}}</caption>
+        <tr>
+          <th> {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param1}}</th>
+          <td *ngFor="let p1 of exFinished.param1">{{p1}}</td>
+        </tr>
+        <tr>
+          <th> {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param2}}</th>
+          <td *ngFor="let p2 of exFinished.param2">{{p2}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="container_m" *ngIf="!state.getIsMobile()">
+  <button class="exit_m" (click)="exit()" routerLink="/">Выйти</button>
+  <button class="back_m" (click)="back()"></button>
+  <div class="formBackground_m" *ngIf="user && user.userTraining && user.userTraining[trainingIndex].userExercises">
+    <div>
+      <h1 class="title1_m" *ngIf="countLeft == 0">вы выполнили <span class="inTitle_m">{{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</span> !</h1>
+      <form #Form="ngForm" *ngIf="countLeft > 0" (ngSubmit)="exerciseDone(+param1.value, +param2.value)">
+        <h1 class="title1_m">Выполняем <span class="inTitle_m">{{user.userTraining[trainingIndex].userExercises[exerciseIndex].exerciseName}}</span></h1>
+        <h2 class="left">
+          Осталось выполнить  подходов: <span class="inTitle_m">{{countLeft}}</span>
+        </h2>
+        <p>
+          {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param1}}
+          <input [ngModel] name="param1" #param1>
+        </p>
+        <p>
+          {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param2}}
+          <input [ngModel] name="param2" #param2>
+        </p>
+        <button class="button" type="submit">Add</button>
+      </form>
+
+      <table *ngIf="exFinished" align="center">
+        <caption>Последний раз {{date}}</caption>
+        <tr>
+          <th> {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param1}}</th>
+          <td *ngFor="let p1 of exFinished.param1">{{p1}}</td>
+        </tr>
+        <tr>
+          <th> {{user.userTraining[trainingIndex].userExercises[exerciseIndex].param2}}</th>
+          <td *ngFor="let p2 of exFinished.param2">{{p2}}</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>

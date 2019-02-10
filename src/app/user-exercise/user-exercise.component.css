@@ -57,12 +57,12 @@
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
-  width: 40%;
+  width: 50%;
   height: 40px;
   text-align: center;
   border: 10px;
   padding: 0;
-  margin-left: 30%;
+  margin-left: 25%;
 }
 
 .formBackground_m{
@@ -102,7 +102,7 @@
   border: 0;
   position: absolute;
   top: 4%;
-  left: 65%;
+  left: 55%;
   border-radius: 20px;
   width: 100px;
   height: 30px;
@@ -254,12 +254,12 @@ img{
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
-  width: 19%;
+  width: 35%;
   height: 40px;
   text-align: center;
   border: 10px;
   padding: 0;
-  margin-left: 40%;
+  margin-left: 32%;
 }
 
 

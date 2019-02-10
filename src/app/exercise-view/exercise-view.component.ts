@@ -3,6 +3,8 @@ import {ExerciseFinished, User} from '../user';
 import {isNumber} from 'util';
 import {MongoDBService} from '../mongo-db.service';
 import { Location} from '@angular/common';
+import {StateServiceService} from '../state-service.service';
+import { formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-exercise-view',
@@ -17,9 +19,13 @@ export class ExerciseViewComponent implements OnInit {
   exerciseIndex: number;
   countLeft: number;
   exerciseFinished = new ExerciseFinished();
+  date: string;
+  exFinished: ExerciseFinished;
+
 
   constructor(private mongoDB: MongoDBService,
-              private location: Location) { }
+              private location: Location,
+              public state: StateServiceService) { }
 
   ngOnInit() {
     if (isNumber(+sessionStorage.getItem('training'))) {
@@ -31,6 +37,11 @@ export class ExerciseViewComponent implements OnInit {
     this.mongoDB.getUserByFId(sessionStorage.getItem('user')).subscribe((user: User) => {
       this.user = user;
       this.countLeft = user.userTraining[this.trainingIndex].userExercises[this.exerciseIndex].count;
+      if (this.user.userTraining[this.trainingIndex].userExercises[this.exerciseIndex].exerciseFinished.length > 0) {
+        const last = this.user.userTraining[this.trainingIndex].userExercises[this.exerciseIndex].exerciseFinished.length - 1;
+        this.exFinished = this.user.userTraining[this.trainingIndex].userExercises[this.exerciseIndex].exerciseFinished[last];
+        this.date = formatDate(this.exFinished.date, 'dd-MM-yy', 'en-US', '+0530');
+      }
     });
   }
 

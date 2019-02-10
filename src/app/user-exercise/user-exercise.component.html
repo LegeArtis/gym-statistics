@@ -14,7 +14,7 @@
         </dl>
     </ul>
 
-    <button class="button" [hidden]="!createMode" (click)="isCreateMode()" >Create Mode</button>
+    <button class="button" [hidden]="!createMode" (click)="isCreateMode()" >Доб./Уд. Упражнение</button>
 
     <div class="form" [hidden]="createMode">
       <form #myForm="ngForm" (ngSubmit)="finish(exerciseName.value, param1.value, param2.value, +count.value)">
@@ -23,18 +23,18 @@
             <input [ngModel] name="exerciseName" placeholder="название" #exerciseName>
           </p>
           <p>
-            Укажите параметр 1:
+            Укажите 1-й параметр измерения:
             <input [ngModel] name="param1" placeholder="параметр 1" #param1>
           </p>
           <p>
-            Укажите параметр 2:
+            Укажите 2-й параметр измерения:
             <input [ngModel] name="param2" placeholder="параметр 2" #param2>
           </p>
           <p>
             Сколько будет подходов?:
             <input [ngModel] name="count" placeholder="количество" #count>
           </p>
-          <button class="button" type="submit">Finish</button>
+          <button class="button" type="submit">Закончить</button>
       </form>
      </div>
   </div>
@@ -54,7 +54,7 @@
       </dl>
     </ul>
 
-    <button class="button_m" [hidden]="!createMode" (click)="isCreateMode()" >Create Mode</button>
+    <button class="button_m" [hidden]="!createMode" (click)="isCreateMode()" >Доб./Уд. Упражнение</button>
 
     <div class="form_m" [hidden]="createMode">
       <form #myForm="ngForm" (ngSubmit)="finish(exerciseName.value, param1.value, param2.value, +count.value)">
@@ -64,11 +64,11 @@
             <input [ngModel] name="exerciseName" placeholder="название" #exerciseName>
         </p>
         <p>
-          Укажите параметр 1:
+          Укажите 1-й параметр измерения:
           <input [ngModel] name="param1" placeholder="параметр 1" #param1>
         </p>
         <p>
-          Укажите параметр 2:
+          Укажите 2-й параметр измерения:
           <input [ngModel] name="param2" placeholder="параметр 2" #param2>
         </p>
         <p>
@@ -76,7 +76,7 @@
           <input [ngModel] name="count" placeholder="количество" #count>
         </p>
 
-        <button class="button_m" type="submit">Finish</button>
+        <button class="button_m" type="submit">Закончить</button>
       </form>
     </div>
   </div>
