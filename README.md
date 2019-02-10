@@ -1,6 +1,7 @@
 # GymStatistics
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+The finished project is installed on Google virtual machine. The project uses the MongoDB database. Project site https://gymstat.biz.ua/
 
 ## Development server
 
