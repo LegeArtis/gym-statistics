@@ -5,8 +5,8 @@ The finished project is installed on Google virtual machine. The project uses th
 
 For convenient use of the site you can log in via Facebook. The site is also adapted for viewing on mobile phones. With this site you can create workouts with a set of exercises. This will help you in the process of training to record your results and see the previous exercise.
 
-Main technologies that I used in this project:
-Web-server: Nginx installed on google virtual machine with Ubuntu operating system.
-Database: MongoDB Atlas.
-Languages: CSS, HTML, JavaScript, TypeScript.
-Library: Mongoose, Express
+#### 	Main technologies that I used in this project:
+#### Web-server: Nginx installed on google virtual machine with Ubuntu operating system.
+#### Database: MongoDB Atlas.
+#### Languages: CSS, HTML, JavaScript, TypeScript.
+#### Node.js library: Mongoose, Express.
