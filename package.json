@@ -23,7 +23,7 @@
     "angular-sessionstorage": "^1.1.5",
     "angularx-social-login": "^1.2.6",
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.6.3",
     "express": "^4.16.4",
